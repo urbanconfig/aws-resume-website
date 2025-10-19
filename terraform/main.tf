@@ -16,3 +16,10 @@ module "backend" {
   iam_user_name       = var.iam_user_name
   tfstate_bucket_name = var.tfstate_bucket_name
 }
+
+module "dns_and_acm" {
+  source          = "./modules/route53_with_acm"
+  dns_zone_domain = var.dns_zone_domain
+  dns_record_ttl  = var.dns_record_ttl
+  cert_region     = var.cert_region
+}

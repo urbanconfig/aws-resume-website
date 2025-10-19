@@ -17,6 +17,9 @@ jobs:
       TF_VAR_region: ${{ secrets.TF_VAR_region }}
       TF_VAR_iam_user_name: ${{ secrets.TF_VAR_iam_user_name }}
       TF_VAR_tfstate_bucket_name: ${{ secrets.TF_VAR_tfstate_bucket_name }}
+      TF_VAR_dns_zone_domain: ${{ secrets.TF_VAR_dns_zone_domain }}
+      TF_VAR_dns_record_ttl: ${{ secrets.TF_VAR_dns_record_ttl }}
+      TF_VAR_cert_region: ${{ secrets.TF_VAR_cert_region }}
 
     defaults:
       run:
