@@ -41,7 +41,7 @@ resource "aws_s3_bucket_policy" "resume_website_bucket_policy" {
         Action    = ["s3:GetObject"],
         Effect    = "Allow",
         Resource  = ["${aws_s3_bucket.resume_website_bucket.arn}/*"],
-        Principal = ["*"]
+        Principal = { AWS = "*" },
       },
     ]
   })
