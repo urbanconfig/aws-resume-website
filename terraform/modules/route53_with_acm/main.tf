@@ -4,10 +4,11 @@ data "aws_route53_zone" "resume_webiste_zone" {
 }
 
 resource "aws_acm_certificate" "ssl_certificate" {
+  provider = aws.us_region
+
   domain_name               = var.dns_zone_domain
   subject_alternative_names = ["*.${var.dns_zone_domain}"]
   validation_method         = "DNS"
-  region                    = var.cert_region
   lifecycle {
     create_before_destroy = true
   }
@@ -25,6 +26,8 @@ resource "aws_route53_record" "dns_record_validation" {
 
 
 resource "aws_acm_certificate_validation" "ssl_certificate_validation" {
+  provider = aws.us_region
+  
   certificate_arn         = aws_acm_certificate.ssl_certificate.arn
   validation_record_fqdns = [aws_route53_record.dns_record_validation.fqdn]
 }
