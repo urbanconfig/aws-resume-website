@@ -27,7 +27,7 @@ resource "aws_route53_record" "dns_record_validation" {
 
 resource "aws_acm_certificate_validation" "ssl_certificate_validation" {
   provider = aws.us_region
-  
+
   certificate_arn         = aws_acm_certificate.ssl_certificate.arn
   validation_record_fqdns = [aws_route53_record.dns_record_validation.fqdn]
 }
