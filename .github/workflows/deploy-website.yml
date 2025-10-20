@@ -19,7 +19,11 @@ jobs:
       TF_VAR_tfstate_bucket_name: ${{ secrets.TF_VAR_tfstate_bucket_name }}
       TF_VAR_dns_zone_domain: ${{ secrets.TF_VAR_dns_zone_domain }}
       TF_VAR_dns_record_ttl: ${{ secrets.TF_VAR_dns_record_ttl }}
-      TF_VAR_cert_region: ${{ secrets.TF_VAR_cert_region }}
+      TF_VAR_us_region: ${{ secrets.TF_VAR_us_region }}
+      TF_VAR_website_bucket: ${{ secrets.TF_VAR_website_bucket }}
+      TF_VAR_force_destroy: ${{ secrets.TF_VAR_force_destroy }}
+      TF_VAR_enable_versioning: ${{ secrets.TF_VAR_enable_versioning }}
+      TF_VAR_index_document_suffix: ${{ secrets.TF_VAR_index_document_suffix }}
 
     defaults:
       run:
