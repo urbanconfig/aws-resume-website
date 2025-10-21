@@ -81,8 +81,8 @@ resource "aws_iam_role_policy_attachment" "attach_iam_policy_to_iam_role" {
 # Package the lambda function code
 data "archive_file" "zip_function" {
   type        = "zip"
-  source_file = "../../lambda_function/lambda_function.py"
-  output_path = "../../lambda/lambda_function.zip"
+  source_file = "../../../lambda_function/lambda_function.py"
+  output_path = "../../../lambda_function/lambda_function.zip"
 }
 
 # Lambda function URL resource with CORS configuration
