@@ -1,7 +1,7 @@
 region                = "eu-central-1"
 us_region             = "us-east-1"
 iam_user_name         = "terraform_user"
-tfstate_bucket_name   = "karol-terraform-state-bucket"
+tfstate_bucket_name   = "tfstate-urbanconfig-cloud-resume"
 dns_zone_domain       = "karolurban.com"
 dns_record_ttl        = 300
 force_destroy         = false
