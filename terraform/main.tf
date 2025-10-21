@@ -51,3 +51,9 @@ module "s3_cloudfront" {
   route53_zone_id             = module.dns_and_acm.route53_zone_id
   root_domain                 = module.dns_and_acm.root_domain
 }
+
+module "lambda_and_dynamodb" {
+  source      = "./modules/lambda_and_dynamodb"
+  table_name  = var.table_name
+  root_domain = module.dns_and_acm.root_domain
+}

@@ -7,3 +7,4 @@ dns_record_ttl        = 300
 force_destroy         = false
 enable_versioning     = "Enabled"
 index_document_suffix = "index.html"
+table_name            = "table-urbanconfig-cloud-resume"  
