@@ -47,7 +47,7 @@ module "s3_cloudfront" {
   index_document              = module.s3_website.index_document
   bucket_regional_domain_name = module.s3_website.bucket_regional_domain_name
   s3_bucket_id                = module.s3_website.s3_bucket_id
-  ssl_certificate_arn         = module.route53_with_acm.ssl_certificate_arn
-  route53_zone_id             = module.route53_with_acm.route53_zone_id
-  root_domain                 = module.route53_with_acm.root_domain
+  ssl_certificate_arn         = module.dns_and_acm.ssl_certificate_arn
+  route53_zone_id             = module.dns_and_acm.route53_zone_id
+  root_domain                 = module.dns_and_acm.root_domain
 }
