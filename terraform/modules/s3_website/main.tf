@@ -1,3 +1,4 @@
+# Create an S3 bucket for hosting a static website
 resource "aws_s3_bucket" "resume_website_bucket" {
   bucket        = var.website_bucket
   force_destroy = var.force_destroy
@@ -6,7 +7,7 @@ resource "aws_s3_bucket" "resume_website_bucket" {
     Name = "S3 bucket for ${var.website_bucket}"
   }
 }
-
+# Enable versioning on the S3 bucket if specified
 resource "aws_s3_bucket_versioning" "resume_website_versioning" {
   bucket = aws_s3_bucket.resume_website_bucket.id
 
@@ -15,6 +16,7 @@ resource "aws_s3_bucket_versioning" "resume_website_versioning" {
   }
 }
 
+# Configure the S3 bucket for static website hosting
 resource "aws_s3_bucket_website_configuration" "s3_resume_website_configuration" {
   bucket = aws_s3_bucket.resume_website_bucket.id
 
@@ -23,6 +25,7 @@ resource "aws_s3_bucket_website_configuration" "s3_resume_website_configuration"
   }
 }
 
+# Configure public access settings to allow website access
 resource "aws_s3_bucket_public_access_block" "website_bucket_public_access" {
   bucket = aws_s3_bucket.resume_website_bucket.id
 
@@ -32,6 +35,7 @@ resource "aws_s3_bucket_public_access_block" "website_bucket_public_access" {
   restrict_public_buckets = false
 }
 
+# Set the bucket policy to allow public read access to the website content
 resource "aws_s3_bucket_policy" "resume_website_bucket_policy" {
   bucket = aws_s3_bucket.resume_website_bucket.id
   policy = jsonencode({
@@ -46,5 +50,6 @@ resource "aws_s3_bucket_policy" "resume_website_bucket_policy" {
     ]
   })
 
+  #Set dependency to ensure public access block is created first
   depends_on = [aws_s3_bucket_public_access_block.website_bucket_public_access]
 }

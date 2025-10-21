@@ -1,8 +1,10 @@
+# Retrieve the Route 53 hosted zone based on the provided domain name
 data "aws_route53_zone" "resume_webiste_zone" {
   name         = var.dns_zone_domain
   private_zone = false
 }
 
+# Create an ACM SSL certificate for the specified domain and its wildcard subdomain
 resource "aws_acm_certificate" "ssl_certificate" {
   provider = aws.us_region
 
@@ -14,6 +16,7 @@ resource "aws_acm_certificate" "ssl_certificate" {
   }
 }
 
+# Create a Route 53 DNS record for domain validation of the ACM certificate
 resource "aws_route53_record" "dns_record_validation" {
   allow_overwrite = true
   name            = tolist(aws_acm_certificate.ssl_certificate.domain_validation_options)[0].resource_record_name
@@ -24,7 +27,7 @@ resource "aws_route53_record" "dns_record_validation" {
 }
 
 
-
+# Validate the ACM SSL certificate using the created DNS record
 resource "aws_acm_certificate_validation" "ssl_certificate_validation" {
   provider = aws.us_region
 
