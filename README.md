@@ -4,7 +4,7 @@
 
 ## 🚀 Project Overview
 
-This repository contains all files required for deploying my personal static resume website. The project is hosted entirely on **Amazon Web Services (AWS)** using a serverless architecture for low maintenance, and cost efficiency. The infrastructure is provisioned and managed using **Terraform**, and the entire deployment process is automated via a continuous integration and continuous deployment (CI/CD) pipeline built with **GitHub Actions**. The website utilizes a modern static-site hosting pattern combined with a Content Delivery Network (CDN) to ensure fast load times and global reach.
+This repository contains all files required for deploying my personal static resume website. The project is hosted entirely on **Amazon Web Services (AWS)** using a serverless architecture for low maintenance, and cost efficiency. The infrastructure is provisioned and managed using **Terraform**, and the entire deployment process is automated via continuous integration and continuous deployment (CI/CD) pipeline built with **GitHub Actions**. The website utilizes a modern static-site hosting pattern combined with a Content Delivery Network (CDN) to ensure fast load times and global reach.
 
 ---
 
@@ -52,6 +52,6 @@ The deployment workflow is fully automated via **GitHub Actions**.
 1.  **Code Commit:** Any push to the main branch triggers the CI/CD pipeline.
 2.  **Infrastructure Changes (Terraform):** The pipeline job formats and validates the resource configuration. Then generates plan of the infrastructure and applies it to provision or update the AWS resources based on the configuration files.
 3.  **Website S3 Sync:** Once infrastructure is provisioned website files are uploaded to S3 bucket via sync job.
-4.  **CloudFront Invalidation** is triggered after content updates to ensure the latest version of the website is immediately available to all users globally.
+4.  **CloudFront Invalidation:** Last job is triggered after content updates to ensure the latest version of the website is immediately available to all users globally.
 
 ---
