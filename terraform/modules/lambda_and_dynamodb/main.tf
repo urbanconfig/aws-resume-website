@@ -93,9 +93,9 @@ resource "aws_lambda_function_url" "lambda_function_url" {
   cors {
     allow_credentials = true
     allow_origins     = ["https://${var.root_domain}"]
-    allow_methods     = ["*"]
-    allow_headers     = ["date", "keep-alive"]
-    expose_headers    = ["keep-alive", "date"]
+    allow_methods     = ["GET"]
+    allow_headers     = ["*"]
+    expose_headers    = ["*"]
     max_age           = 86400
   }
 }
