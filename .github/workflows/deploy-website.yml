@@ -65,3 +65,19 @@ jobs:
         env:
           AWS_S3_BUCKET: ${{ secrets.TF_VAR_website_bucket }}
         run: aws s3 sync website s3://$AWS_S3_BUCKET --delete
+
+  Invalidate_CloudFront_Cache:
+    name: Invalidate CloudFront Distribution Cache
+    needs: Sync_to_s3
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Invalidate CloudFront Cache
+        uses: chetan/invalidate-cloudfront-action@v2
+
+        env:
+          DISTRIBUTION: ${{ secrets.CLOUDFRONT_DISTRIBUTION }}
+          PATHS: "/*" #????
+          AWS_REGION: "us-east-1" #???
+          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
