@@ -2,7 +2,7 @@
 
 ### My website can be accessed at: https://karolurban.com
 
-## 🚀 Project Overview
+## Project Overview
 
 This repository contains all files required for deploying my personal static resume website. The project is hosted entirely on **Amazon Web Services (AWS)** using a serverless architecture for low maintenance, and cost efficiency. The infrastructure is provisioned and managed using **Terraform**, and the entire deployment process is automated via continuous integration and continuous deployment (CI/CD) pipeline built with **GitHub Actions**. The website utilizes a modern static-site hosting pattern combined with a Content Delivery Network (CDN) to ensure fast load times and global reach.
 
@@ -13,9 +13,9 @@ This repository contains all files required for deploying my personal static res
 
 
 
-## 🛠️ Technologies Used
+## Technologies Used
 
-### ☁️ AWS Services
+### AWS Services
 
 1.  **S3 Bucket:** The raw website files (HTML, CSS, JS) are stored in a private S3 Bucket. CloudFront is configured to serve content exclusively from this S3 bucket, preventing direct public access.
 2.  **CloudFront (CDN):** Functions as the global Content Delivery Network (CDN) to cache, secure, and deliver the static files with low latency.
@@ -45,7 +45,7 @@ This repository contains all files required for deploying my personal static res
 
 ---
 
-## ⚙️ Deployment and CI/CD
+## Deployment and CI/CD
 
 The deployment workflow is fully automated via **GitHub Actions**.
 
