@@ -1,6 +1,6 @@
 # Resume Website on AWS
 
-### My website can be accessed at: https://karolurban.com
+### My website can be accessed at: https://karolurban.com - currently inactive, migration in progress
 
 ## Project Overview
 
