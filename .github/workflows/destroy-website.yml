@@ -32,4 +32,4 @@ jobs:
         run: terraform init -input=false
 
       - name: Terraform Destroy
-        run: terraform destroy -auto-approve  
+        run: terraform destroy -auto-approve -target=module.s3_website -target=module.s3_cloudfront -target=module.route53_with_acm -target=module.lambda_and_dynamodb
